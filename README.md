@@ -1,22 +1,24 @@
-# Gene Annotation and Parameter Selection Using GeMoMa
+# GeMoMa gene prediction pipeline
+A snakemake pipeline to predict gene structure using GeMoMa. GeMoMa will integrate annotations from multiple species.
 
-Main project repository is [here](https://github.com/ZexuanZhao/Pegoscapus-hoffmeyeri-sp.A-genome-paper/tree/main).
+# Files to prepare:
+- `database.csv`: store reference genome assemblies and annotations with 3 columns:
+  - `Species`: species name. Only letters and underscores are allowed in the name!
+  - `Genome`: path to genome assembly
+  - `GFF`: path to genome annotation gff file
+- config.yaml: running parameters:
+  - `database`: path to `database.csv`
+  - `genome`: path to the genome assembly to be annotated
+  - `outdir`: path to output directory.
+  - `cpu`: number of threads to run the pipeline
+  - `mem`: mamximum memory given to the pipeline
+  
+# Usage:
 
-## Description:
- - Annotate genes using a customized  database of various genetic distances to the reference genome.
- - Measure the BUSCO completeness within a range of `score/aa` ratios.
- - RNAseq is optional.
+```
+snakemake --cores [cpu] --use-conda
+```
 
-## Files to prepare:
- - A database sheet:
-   - Species: names of the species
-   - Genome: path to the `.fasta` genome assembly files
-   - GFF: path to the `.gff` annotation files
- - Modify configuration file - config.yaml:
-   - database: path to the database sheet
-
-## Environment:
- - An environmtnt with `snakemake` installed.
-
-## Usage:
-`snakemake --cores [cpu] --use-conda`
+# Author:
+Kevin Quinteros: <kquinter@umd.edu>
+Zexuan Zhao: <zzhao127@umd.edu>

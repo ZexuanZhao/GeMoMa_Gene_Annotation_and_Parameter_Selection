@@ -1,0 +1,21 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+description: Genome and annotation files of reference species
+
+# columns that the 04_config/ref_genomes.tsv file can have and which type they should be
+properties:
+  Species:
+    type: string
+    description: species names for each reference genome
+  Genome:
+    type: string
+    description: relative path to genome assemblies
+  GFF:
+    type: string
+    description: relative path to genome annotation
+
+# required columns
+required:
+  - Species
+  - Genome
+  - GFF
